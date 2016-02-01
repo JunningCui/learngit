@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="css/default.css">
+</head>
+<body>
+	<div class="wrap">
+		<a class="reset" href="#" onclick="clearStorage();return false;">Reset</a>
+		<div id="loginBg" class="loginBg">
+			<div class="beginBtnBox">
+				<div id="beginBtnBg" class="beginBtnBg rotateAction"></div>
+				<div class="beginBtn"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+//移除class
+	function hasClass(obj, cls) {  
+	    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+	}
+	function removeClass(obj, cls) {  
+	    if (hasClass(obj, cls)) {  
+	        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+	        obj.className = obj.className.replace(reg, ' ');  
+	    }  
+	}  
+	window.onload =function (){
+		document.onkeydown = function (){
+			if(event.keyCode == 32){
+				var _ele = document.getElementById("beginBtnBg")
+				removeClass(_ele,"btnBgAction");
+				setTimeout("window.location.href ='index.html'",100)
+				
+			}
+		}
+	document.getElementById('loginBg').onclick=function (){
+			var _ele = document.getElementById("beginBtnBg")
+				removeClass(_ele,"btnBgAction");
+				setTimeout("window.location.href ='index.html'",100)
+		}
+	} 
+	function clearStorage(){
+		alert("你确定重置抽奖系统吗？")
+    	localStorage.clear();
+  }
+</script>
+</html>
